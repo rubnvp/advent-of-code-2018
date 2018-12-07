@@ -1,4 +1,4 @@
-const inputText = `
+ADVENT_OF_CODE.inputText = `
 1, 1
 1, 6
 8, 3
@@ -6,61 +6,7 @@ const inputText = `
 5, 5
 8, 9
 `;
-const MAX_DIST = 32;
-
-// const inputText = `
-// 69, 102
-// 118, 274
-// 150, 269
-// 331, 284
-// 128, 302
-// 307, 192
-// 238, 52
-// 240, 339
-// 111, 127
-// 180, 156
-// 248, 265
-// 160, 69
-// 58, 136
-// 43, 235
-// 154, 202
-// 262, 189
-// 309, 53
-// 292, 67
-// 335, 198
-// 99, 199
-// 224, 120
-// 206, 313
-// 359, 352
-// 101, 147
-// 301, 47
-// 255, 347
-// 121, 153
-// 264, 343
-// 252, 225
-// 48, 90
-// 312, 139
-// 90, 277
-// 203, 227
-// 315, 328
-// 330, 81
-// 190, 191
-// 89, 296
-// 312, 255
-// 218, 181
-// 299, 149
-// 151, 254
-// 209, 212
-// 42, 76
-// 348, 183
-// 333, 227
-// 44, 210
-// 293, 356
-// 44, 132
-// 175, 77
-// 215, 109
-// `;
-// const MAX_DIST = 10000;
+ADVENT_OF_CODE.MAX_DIST = 32;
 
 function parseInput(inputText) {
     return inputText
@@ -118,11 +64,16 @@ function resolve1(positions) {
     });
 
     const sides = myMap
-        .reduce((corners, row) => {
-            corners.left.push(row[0]);
-            corners.right.push(row.slice(-1)[0]);
-            return corners;
-        }, { top: myMap[0], right: [], bottom: myMap.slice(-1)[0], left: [] });
+        .reduce((sides, row) => {
+            sides.left.push(row[0]);
+            sides.right.push(row.slice(-1)[0]);
+            return sides;
+        }, {
+                top: myMap[0],
+                right: [],
+                bottom: myMap.slice(-1)[0],
+                left: []
+            });
 
     const corners = new Set(Object.values(sides).flatMap(l => l));
 
@@ -162,7 +113,7 @@ function resolve2(positions) {
             const sumPos = positions
                 .map(pos => getDistance(x, y, pos.x, pos.y))
                 .reduce((sum, distance) => sum + distance);
-            if (sumPos < MAX_DIST) {
+            if (sumPos < ADVENT_OF_CODE.MAX_DIST) {
                 myMap[y][x] = '#';
             }
         });
@@ -174,11 +125,12 @@ function resolve2(positions) {
         .length;
 }
 
-const input = parseInput(inputText);
+const input = parseInput(ADVENT_OF_CODE.inputText);
 const result = resolve2(input);
 
 console.log(result);
 
+// // paint the map for debugging reasons
 // document.getElementById('app').innerHTML = `
 // <table>
 //     ${
