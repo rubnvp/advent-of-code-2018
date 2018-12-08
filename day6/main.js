@@ -1,3 +1,4 @@
+ADVENT_OF_CODE = ADVENT_OF_CODE || {};
 ADVENT_OF_CODE.inputText = `
 1, 1
 1, 6

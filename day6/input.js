@@ -1,4 +1,4 @@
-const ADVENT_OF_CODE = {
+var ADVENT_OF_CODE = {
     inputText: `
 69, 102
 118, 274
