@@ -1,5 +1,4 @@
-ADVENT_OF_CODE = ADVENT_OF_CODE || {};
-ADVENT_OF_CODE.inputText = `
+var inputText = `
 1, 1
 1, 6
 8, 3
@@ -7,7 +6,7 @@ ADVENT_OF_CODE.inputText = `
 5, 5
 8, 9
 `;
-ADVENT_OF_CODE.MAX_DIST = 32;
+var MAX_DIST = 32;
 
 function parseInput(inputText) {
     return inputText
@@ -114,7 +113,7 @@ function resolve2(positions) {
             const sumPos = positions
                 .map(pos => getDistance(x, y, pos.x, pos.y))
                 .reduce((sum, distance) => sum + distance);
-            if (sumPos < ADVENT_OF_CODE.MAX_DIST) {
+            if (sumPos < MAX_DIST) {
                 myMap[y][x] = '#';
             }
         });
@@ -126,7 +125,7 @@ function resolve2(positions) {
         .length;
 }
 
-const input = parseInput(ADVENT_OF_CODE.inputText);
+const input = parseInput(inputText);
 const result = resolve2(input);
 
 console.log(result);

@@ -1,5 +1,4 @@
-var ADVENT_OF_CODE = {
-    inputText: `
+var inputText = `
 69, 102
 118, 274
 150, 269
@@ -50,6 +49,5 @@ var ADVENT_OF_CODE = {
 44, 132
 175, 77
 215, 109
-`,
-    MAX_DIST: 10000,
-};
+`;
+var MAX_DIST = 10000;
