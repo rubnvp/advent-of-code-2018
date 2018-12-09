@@ -1,0 +1,1 @@
+var inputText = `413 players; last marble is worth 71082 points`;
