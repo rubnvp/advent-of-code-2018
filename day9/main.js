@@ -57,7 +57,6 @@ function resolve2({ playersCount, maxPoints }) {
 
     let currentMarble = initialMarble;
 
-    console.time('time');
     let nextMarbleValue = 1;
     let i = 0;
 
@@ -102,6 +101,8 @@ function resolve2({ playersCount, maxPoints }) {
 }
 
 const input = parseInput(inputText);
+console.time('resolve');
 const output = resolve2(input);
+console.timeEnd('resolve');
 
 console.log(output);
